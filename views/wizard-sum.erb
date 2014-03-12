@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Basic HTML Page</title>
+    <link rel="stylesheet" href="home.css" />
+  </head>
+  <body>
+  <ul>
+      <% @wizards.each do |wizard| %>
+        <li><%= wizard %></li>
+      <% end %>
+    </ul>
+    </body>

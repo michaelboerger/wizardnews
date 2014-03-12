@@ -6,28 +6,23 @@
   </head>
 
   <body>
+       <h1>Wizard Article Submission</h1>
+      <form action="/wizard-sum" method="post">
 
-
-
-      <label for="title">title:</label>
-      <input type="text area" id="title" name="title" />
+      <label for="title">title</label>
+      <input type="text" id="title" name="title" />
       <br>
 
-       <label for="url">url:</label>
-      <input type="text area" id="url" name="url" />
+       <label for="url">url</label>
+      <input type="text" id="url" name="url" />
       <br>
-      <label for="description">description:</label>
+      <label for="description">description</label>
       <input type="text area" id="description" name="description" />
 
       <input type="submit" />
     </form>
-     <h1>Wizard Article Submission</h1>
 
-    <ul>
-      <% @wizards.each do |wizard| %>
-        <li><%= wizard %></li>
-      <% end %>
-    </ul>
+
 
   </body>
 </html>

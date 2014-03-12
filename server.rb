@@ -2,17 +2,23 @@ require 'sinatra'
 require 'shotgun'
 
 get '/' do
-  @wizards = File.readlines('wizards.csv')
+  @title = File.readlines('wizards.csv')
+  @url = File.readlines('wizards.csv')
+  @description = File.readlines('wizards.csv')
   erb :index
 end
 
-post '/wizards' do
+post '/wizard-sum' do
 
-  wizards = params['task_name']
+  @title=params['title']
+  @url=params['url']
+  @description=params['description']
 
 
   File.open('wizards.csv', 'a') do |file|
-    file.puts(wizards)
+    file.puts('title')
+    file.puts('url')
+    file.puts('description')
   end
 
 
