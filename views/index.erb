@@ -6,19 +6,28 @@
   </head>
 
   <body>
-    <h1>TODO list</h1>
 
-    <ul>
-      <% @tasks.each do |task| %>
-        <li><%= task %></li>
-      <% end %>
-    </ul>
 
-    <form action="/tasks" method="post">
-      <label for="task_name">New Task:</label>
-      <input type="text" id="task_name" name="task_name" />
+
+      <label for="title">title:</label>
+      <input type="text area" id="title" name="title" />
+      <br>
+
+       <label for="url">url:</label>
+      <input type="text area" id="url" name="url" />
+      <br>
+      <label for="description">description:</label>
+      <input type="text area" id="description" name="description" />
 
       <input type="submit" />
     </form>
+     <h1>Wizard Article Submission</h1>
+
+    <ul>
+      <% @wizards.each do |wizard| %>
+        <li><%= wizard %></li>
+      <% end %>
+    </ul>
+
   </body>
 </html>

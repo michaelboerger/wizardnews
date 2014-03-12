@@ -1,25 +1,39 @@
 require 'sinatra'
+require 'shotgun'
 
 get '/' do
-  @tasks = File.readlines('tasks')
+  @wizards = File.readlines('wizards.csv')
   erb :index
 end
 
-post '/tasks' do
-  # Read the input from the form the user filled out
-  task = params['task_name']
+post '/wizards' do
 
-  # Open the "tasks" file and append the task
-  File.open('tasks', 'a') do |file|
-    file.puts(task)
+  wizards = params['task_name']
+
+
+  File.open('wizards.csv', 'a') do |file|
+    file.puts(wizards)
   end
 
-  # Send the user back to the home page which shows
-  # the list of tasks
+
   redirect '/'
 end
 
-# These lines can be removed since they are using the default values. They've
-# been included to explicitly show the configuration options.
-set :views, File.dirname(__FILE__) + '/views'
-set :public_folder, File.dirname(__FILE__) + '/public'
+
+
+
+# get "/" do
+# @articles = []
+# CSV.foreach(file) do
+# #create article from file contents
+# @articles << WizardArticle.new
+# end
+# erb :index
+# end
+
+# post "/create-article" do
+# #create a wizard based on form values
+# @article = WizardArticle.new
+# @article.write_to_csv(file)
+# redirect "/"
+# end
