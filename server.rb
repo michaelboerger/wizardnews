@@ -4,8 +4,8 @@ require 'csv'
 
 get '/'  do
   @wizards=[]
-   CSV.foreach('wizards.csv', headers: true) do |file|
-    @wizards<<file
+   CSV.foreach('wizards.csv') do |file|
+    @wizards<<file.to_s
    end
   #read in CSV
   erb :index
@@ -16,14 +16,17 @@ get '/new-wizard-article'  do
 end
 
 post '/new-wizard-article' do
-  @title=params['title']
-  @url=params['url']
-  @description=params['description']
+  @title=[]
+  @url=[]
+  @description=[]
+  @title<<params['title']
+  @url<<params['url']
+  @description<<params['description']
 
-  CSV.foreach('wizards.csv', headers: true) do |file|
-    file.puts(@title)
-    file.puts(@url)
-    file.puts(@description)
+  CSV.open('wizards.csv', 'wb') do |file|
+      file<<@title
+      file<<@url
+      file<<@description
   end
   redirect '/'
 end
